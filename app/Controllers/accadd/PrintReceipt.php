@@ -47,7 +47,7 @@ class PrintReceipt extends BaseController {
         $pdf->watermarkImageAlpha = 0.2;
         $pdf->SetWatermarkImage(base_url() . 'assets/images/logo.jpg');
         $pdf->showWatermarkImage = true;
-        $html = echo view('accadd/receipt2ndSemHostel', $data, TRUE);
+        $html = view('accadd/receipt2ndSemHostel', $data);
         //generate the PDF from the given html
         $this->stylesheet = file_get_contents(base_url() . 'assets/bootstrap/css/bootstrap.min.css');
         $this->stylesheet .= file_get_contents(base_url() . 'assets/css/layout.css');
