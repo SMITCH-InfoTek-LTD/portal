@@ -21,11 +21,11 @@ class Studentloginc extends BaseController {
         $this->form_validation->set_rules('password', 'password', 'trim|required|xss_clean|alpha_numeric|callback_password_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/studentlogin', $data);
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/studentlogin', $data);
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->RegNumb = $this->input->post('RegNumb');
             $this->password = $this->input->post('password');
@@ -113,11 +113,11 @@ class Studentloginc extends BaseController {
                 $_SESSION['message'] = 'Invalid credentials supplied';
                 //echo "Got here++++++";
                 $this->session->mark_as_flash('message');
-                $this->load->view('template/header');
-                $this->load->view('template/header_menu');
-                $this->load->view('secured/studentlogin');
+                echo view('template/header');
+                echo view('template/header_menu');
+                echo view('secured/studentlogin');
                 $this->form_validation->set_message('rule', 'Error Message');
-                $this->load->view('template/footer_other');
+                echo view('template/footer_other');
                 //$this->form_validation->set_message('rule', 'Error Message');
                 //return FALSE;
             }

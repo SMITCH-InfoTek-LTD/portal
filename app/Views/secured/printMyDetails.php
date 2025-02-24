@@ -28,7 +28,7 @@
                 <section id="intro" class="last clear">
                     <article class="one_third">
                         <figcaptionmenuL>
-                            <?php $this->load->view('menu/secured/studentmenuS'); ?>
+                            <?php echo view('menu/secured/studentmenuS'); ?>
                         </figcaptionmenuL>
                     </article>
                     <article>

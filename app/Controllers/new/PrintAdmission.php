@@ -42,14 +42,14 @@ class Printadmission extends BaseController {
         $pdf->watermarkImageAlpha = 0.2;
         $pdf->SetWatermarkImage(base_url() . 'assets/images/logo.jpg');
         $pdf->showWatermarkImage = true;
-        $html = $this->load->view('new/printadmission', $data, TRUE);
+        $html = echo view('new/printadmission', $data, TRUE);
 
         //generate the PDF from the given html
         $this->stylesheet = file_get_contents(base_url() . 'assets/bootstrap/css/bootstrap.min.css');
         $pdf->WriteHTML($this->stylesheet, 1);
         $pdf->WriteHTML($html);
 
-        $html2 = $this->load->view('new/academicplanning', $data, TRUE);
+        $html2 = echo view('new/academicplanning', $data, TRUE);
         $pdf->SetHeader('Director Academic Planning|SCREENING CERTIFICATE|{PAGENO}');
         $pdf->SetFooter('Office of Director Academic Planning');
         $pdf->defaultheaderfontsize = 10;
@@ -61,7 +61,7 @@ class Printadmission extends BaseController {
         //$pdf->AddPage();
         $pdf->WriteHTML($html2);
 
-        $html3 = $this->load->view('new/academicplanning2', $data, TRUE);
+        $html3 = echo view('new/academicplanning2', $data, TRUE);
         $pdf->SetHeader('Director Academic Planning|SCREENING CERTIFICATE|{PAGENO}');
         $pdf->SetFooter('Office of Director Academic Planning');
         $pdf->defaultheaderfontsize = 10;
@@ -76,7 +76,7 @@ class Printadmission extends BaseController {
         $pdf->WriteHTML($html3);
         //import from the pdf
         /***/
-        $html4 = $this->load->view('new/printnotificationreceipt', $data, TRUE);
+        $html4 = echo view('new/printnotificationreceipt', $data, TRUE);
         $pdf->SetHeader('<div style="font-family: serif;">Office of the Bursar|Notification receipt|{PAGENO}</div>');
         $pdf->SetFooter('Office of the Bursar');
         $pdf->defaultheaderfontsize = 10;
@@ -91,7 +91,7 @@ class Printadmission extends BaseController {
         $pdf->WriteHTML($html4);
         /** 
          
-        $html5 = $this->load->view('new/printchangeofinstitution', $data, TRUE);
+        $html5 = echo view('new/printchangeofinstitution', $data, TRUE);
         $pdf->SetHeader('<div style="font-family: serif;">Office of the Bursar|Change of Institution receipt|{PAGENO}</div>');
         $pdf->SetFooter('Office of the Bursar');
         $pdf->defaultheaderfontsize = 10;

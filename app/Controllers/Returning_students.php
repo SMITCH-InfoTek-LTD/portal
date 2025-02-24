@@ -17,9 +17,9 @@ class Returning_students extends BaseController{
 	public function index()
 	{	
 		$this->load->helper('url');
-		$this->load->view('template/header');
-                $this->load->view('template/header_menu');
-		$this->load->view('returning_students');
-		$this->load->view('template/footer_other');
+		echo view('template/header');
+                echo view('template/header_menu');
+		echo view('returning_students');
+		echo view('template/footer_other');
 	}
 }

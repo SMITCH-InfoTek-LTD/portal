@@ -24,10 +24,10 @@ class Showstudentinfoc extends BaseController {
         $this->load->helper(array('form', 'url'));
         $this->load->helper('html');
         $this->load->model('secured/Student_m');
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('secured/showstudentinfo', $data);
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('secured/showstudentinfo', $data);
+        echo view('template/footer_other');
     }
 
 }

@@ -27,10 +27,10 @@ class SuccessAdmchkpayment extends BaseController {
         $this->load->helper('html');
     }
     public function index() {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('accadd/receiptAdmChkpayment');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('accadd/receiptAdmChkpayment');
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } 
 }

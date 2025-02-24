@@ -26,7 +26,7 @@ redirect('secured/Preadmissionloginc',"redirect");
                                 </fieldset>
                             </figcaptionHome>
                             <figcaptionmenu>
-                            <?php $this->load->view('template/sidemenu');?>
+                            <?php echo view('template/sidemenu');?>
                             </figcaptionmenu>
                             
                         </figure>

@@ -30,11 +30,11 @@ class PayforHostel extends BaseController {
 
     public function index() {
         $sub_data['cap_img'] = $this->Captcha->make_captcha();
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('secured/payforHostel', $sub_data);
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('secured/payforHostel', $sub_data);
         $this->form_validation->set_message('rule', 'Error Message');
-        $this->load->view('template/footer_other');
+        echo view('template/footer_other');
     }
 
     public function payment4Hostel() {
@@ -49,11 +49,11 @@ class PayforHostel extends BaseController {
 
         if ($this->form_validation->run() == FALSE) {
             $sub_data['cap_img'] = $this->Captcha->make_captcha();
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/payforHostel', $sub_data);
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/payforHostel', $sub_data);
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             //$this->Paymentremita_m->payment();
             //redirect('secured/Processpayment', 'refresh');

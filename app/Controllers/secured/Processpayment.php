@@ -22,10 +22,10 @@ class Processpayment extends BaseController {
         $this->load->helper('html');
     }
     public function index() {
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('secured/processpayment');
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('secured/processpayment');
+        echo view('template/footer_other');
     }
 
 }

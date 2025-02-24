@@ -38,11 +38,11 @@ class GetPaymentStatus extends BaseController {
         $this->form_validation->set_rules('RRR', 'RRR number', 'trim|required|xss_clean|alpha_numeric');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/getpaymentstatus');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/getpaymentstatus');
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->rrr = $this->input->post('RRR');
             $this->response = $this->Paymentremita_m->getPaymentStatusReg($this->rrr);

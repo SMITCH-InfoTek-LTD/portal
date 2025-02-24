@@ -28,10 +28,10 @@ class Receiptc extends BaseController {
 
     public function index() {
 
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('secured/receipt');
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('secured/receipt');
+        echo view('template/footer_other');
     }
 
     public function remita_transaction_details($val) {

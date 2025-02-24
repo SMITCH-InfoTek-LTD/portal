@@ -25,10 +25,10 @@ class CsvPushUp extends BaseController{
     }
  
     function index() {
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
+        echo view('template/header');
+        echo view('template/header_menu');
         //$data['students'] = $this->Csv_pushUp->get_studentrecords();
-        $this->load->view('admin/uploadecsv');
-        $this->load->view('template/footer_other');
+        echo view('admin/uploadecsv');
+        echo view('template/footer_other');
     }
 }

@@ -165,7 +165,7 @@ if (!isset($_SESSION['RegNumb'])) {
         <div class="row content">
             <div class="col-sm-2">
                 <p style="background-color: transparent">
-                    <?php $this->load->view('menu/studentmenuS'); ?>
+                    <?php echo view('menu/studentmenuS'); ?>
                 </p>
             </div>
             <!-- main content -->

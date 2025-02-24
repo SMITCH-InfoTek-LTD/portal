@@ -39,10 +39,10 @@ class Loginc extends BaseController {
 
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('bursary/login', $sub_data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('bursary/login', $sub_data);
+            echo view('template/footer_other');
         } else {
             $this->password = $this->input->post('password');
             $this->username = $this->input->post('username');

@@ -25,10 +25,10 @@ class Successc extends BaseController {
     }
     
     function index(){
-        $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-        $this->load->view('secured/admin/success');
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+            echo view('template/header_menu');
+        echo view('secured/admin/success');
+        echo view('template/footer_other');
     }
 }
 

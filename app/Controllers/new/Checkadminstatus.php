@@ -25,11 +25,11 @@ class Checkadminstatus extends BaseController {
     //put your code here
     public function index() {
         $sub_data['cap_img'] = $this->Captcha->make_captcha();
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('new/checkadminstatus',$sub_data);
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('new/checkadminstatus',$sub_data);
         $this->form_validation->set_message('rule', 'Error Message');
-        $this->load->view('template/footer_other');
+        echo view('template/footer_other');
     }
 
     public function adminCheck() {
@@ -37,11 +37,11 @@ class Checkadminstatus extends BaseController {
         $this->form_validation->set_error_delimiters('<div class="errormessage">', '</div>');
         $this->form_validation->set_rules('RegNumb', 'Jamb ID', 'trim|required|xss_clean|alpha_numeric');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('new/checkadminstatus',$sub_data);
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('new/checkadminstatus',$sub_data);
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->RegNumb = $this->input->post('RegNumb');
             $query = $this->db->get_where('admittedstudents', array('RegNumb' => $this->RegNumb));

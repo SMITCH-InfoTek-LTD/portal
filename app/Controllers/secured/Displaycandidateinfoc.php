@@ -24,10 +24,10 @@ class Displaycandidateinfoc extends BaseController {
         $this->load->database();
         $this->load->database();
         $this->load->helper('html');
-        $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-        $this->load->view('secured/displayCandidateinfo', $data);
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+            echo view('template/header_menu');
+        echo view('secured/displayCandidateinfo', $data);
+        echo view('template/footer_other');
     }
 
 }

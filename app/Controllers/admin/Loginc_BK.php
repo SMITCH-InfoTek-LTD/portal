@@ -41,10 +41,10 @@ class Loginc extends BaseController {
             $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[24]|xss_clean|callback_username_check');
 
             if ($this->form_validation->run() == FALSE) {
-                $this->load->view('template/header');
-                $this->load->view('template/header_menu');
-                $data['body'] = $this->load->view('admin/login', $sub_data, true);
-                $this->load->view('template/footer_other');
+                echo view('template/header');
+                echo view('template/header_menu');
+                $data['body'] = echo view('admin/login', $sub_data, true);
+                echo view('template/footer_other');
             } else {
                 if ($this->Captcha->check_captcha() == TRUE) {
 
@@ -66,13 +66,13 @@ class Loginc extends BaseController {
                         return TRUE;
                     } else {
                         $sub_data['captcha_return'] = "The characters you entered didn't match the word verification. Please try again. <br/>";
-                        $data['body'] = $this->load->view('admin/login', $sub_data, true);
+                        $data['body'] = echo view('admin/login', $sub_data, true);
                         return FALSE;
                     }
                 }
-                $this->load->view('admin/login', $data);
+                echo view('admin/login', $data);
             }
-            $this->load->view('admin/login', $data);
+            echo view('admin/login', $data);
         }
     }
 

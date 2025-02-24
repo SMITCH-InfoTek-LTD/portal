@@ -23,10 +23,10 @@ class PrintRegCoursesShow extends BaseController {
         $this->load->helper('html');
         $this->load->library('table');
         $this->load->model('ug/Courseregistration');
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('secured/printegoursesshow');
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('secured/printegoursesshow');
+        echo view('template/footer_other');
     }
 
 }

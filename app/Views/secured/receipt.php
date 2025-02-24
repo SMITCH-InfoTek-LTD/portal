@@ -22,7 +22,7 @@ if (isset($_SESSION["response"])) {
         <div class="row content">
             <div class="col-sm-2 sidenav">
                 <p>
-                     <p><?php $this->load->view('menu/studentmenuS');?></p>
+                     <p><?php echo view('menu/studentmenuS');?></p>
                 </p>
             </div>
             <!-- main content -->
@@ -265,7 +265,7 @@ $atts = array(
 
             </div>
             <div class="col-sm-2 sidenav">
-<?php $this->load->view('template/menu/sidenav');?>
+<?php echo view('template/menu/sidenav');?>
 </div>
         </div>
     </div>

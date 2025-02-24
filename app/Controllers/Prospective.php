@@ -19,10 +19,10 @@ class Prospective extends BaseController {
 
     public function index() {
         $this->load->helper('url');
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('prospective');
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('prospective');
+        echo view('template/footer_other');
     }
 
 }

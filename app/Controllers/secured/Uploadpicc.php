@@ -15,10 +15,10 @@ class Uploadpicc extends BaseController {
     }
 
     function index() {
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('secured/uploadpassport', array('error' => ' '));
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('secured/uploadpassport', array('error' => ' '));
+        echo view('template/footer_other');
     }
 
     function do_upload() {
@@ -37,10 +37,10 @@ class Uploadpicc extends BaseController {
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload()) {
             $error = array('error' => $this->upload->display_errors());
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/uploadpassport', $error);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/uploadpassport', $error);
+            echo view('template/footer_other');
         } else {
  
             $datapic = array('upload_data' => $this->upload->data());
@@ -88,10 +88,10 @@ class Uploadpicc extends BaseController {
 //**************/
 
                 $info = array('upload_data' => $this->upload->data(), 'data' => $data);
-                $this->load->view('template/header');
-                $this->load->view('template/header_menu');
-                $this->load->view('secured/uploadsuccess', $info);
-                $this->load->view('template/footer_other');
+                echo view('template/header');
+                echo view('template/header_menu');
+                echo view('secured/uploadsuccess', $info);
+                echo view('template/footer_other');
             }
         }
     }

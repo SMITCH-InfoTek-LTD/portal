@@ -28,10 +28,10 @@ class Mainstudentc extends BaseController {
         $this->load->database();
         $this->load->model('secured/Student_m');
         $this->load->helper('html');
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('admin/mainstudent', $data);
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('admin/mainstudent', $data);
+        echo view('template/footer_other');
     }
 
 }

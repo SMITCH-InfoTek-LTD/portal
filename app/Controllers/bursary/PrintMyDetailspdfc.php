@@ -35,7 +35,7 @@ class PrintMyDetailspdfc extends BaseController {
         );
         $pdfFilePath = $this->session->userdata('JambID') . ".pdf";
         $pdf = $this->m_pdf->load();
-        $html = $this->load->view('secured/printMyDetailsPDF', $data, TRUE);
+        $html = echo view('secured/printMyDetailsPDF', $data, TRUE);
         
         //generate the PDF from the given html
         $pdf->WriteHTML($html);

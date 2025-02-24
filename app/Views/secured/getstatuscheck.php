@@ -17,7 +17,7 @@ if (isset($_SESSION["response_code"])) {
         <!-- main content -->
         <div class="row content">
             <div class="col-sm-2 sidenav">
-                <p><?php $this->load->view('menu/studentmenuS'); ?></p>
+                <p><?php echo view('menu/studentmenuS'); ?></p>
             </div>
             <!-- main content -->
             <div class="col-sm-8 text-center">

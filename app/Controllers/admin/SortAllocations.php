@@ -29,10 +29,10 @@ class SortAllocations extends BaseController {
         $this->form_validation->set_rules('sorting', 'Sorting', 'trim|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('admin/sortallocations', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('admin/sortallocations', $data);
+            echo view('template/footer_other');
         } else {
             $Sqlqry = 'SELECT RegNumb FROM paymentTrans WHERE((Item_Code="")AND((status = "00")||(status = "01"))'
                     . 'AND(academic_session="' . ACADEMIC_SESSION . '"))';

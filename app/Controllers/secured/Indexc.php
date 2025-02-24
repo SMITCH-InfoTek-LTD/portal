@@ -27,10 +27,10 @@ class Indexc extends BaseController{
         $this->load->helper('html');
         
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('welcome', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('welcome', $data);
+            echo view('template/footer_other');
         }
     }
 }

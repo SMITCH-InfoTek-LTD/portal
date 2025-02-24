@@ -35,11 +35,11 @@ class QueryFailedTransactions extends BaseController {
     }
 
     public function index() {
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('bursary/showtransactionstatus');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('bursary/showtransactionstatus');
         $this->form_validation->set_message('rule', 'Error Message');
-        $this->load->view('template/footer_other');
+        echo view('template/footer_other');
     }
 
     public function getPaymentStatus() {
@@ -47,11 +47,11 @@ class QueryFailedTransactions extends BaseController {
         $this->form_validation->set_rules('RRR', 'RRR number', 'trim|required|xss_clean|alpha_numeric|callback_RRRNUMB_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('bursary/showtransactionstatus');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('bursary/showtransactionstatus');
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->response = $this->Paymentremita_m->getPaymentStatusRMT();
             if (isset($this->response)) {

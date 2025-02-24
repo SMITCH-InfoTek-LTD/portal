@@ -13,7 +13,7 @@ if (!isset($_SESSION['RegNumb'])) {
     <div class="container-fluid text-center col-sm-12">
         <div class="row content">
             <div class="col-sm-2 sidenav">
-                <p><?php $this->load->view('menu/studentmenuS'); ?></p>
+                <p><?php echo view('menu/studentmenuS'); ?></p>
             </div>
             <!-- main content -->
             <div class="col-sm-8 text-center">
@@ -39,7 +39,7 @@ if (!isset($_SESSION['RegNumb'])) {
                 <script type="text/javascript">document.getElementById("remita_form").submit();</script>
               </div> 
             <div class="col-sm-2 sidenav">
-                <?php $this->load->view('template/menu/sidenav'); ?>
+                <?php echo view('template/menu/sidenav'); ?>
             </div>
         </div>
     </div>

@@ -30,10 +30,10 @@ class Loginc extends BaseController {
         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[24]|xss_clean|callback_username_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/admin/login', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/admin/login', $data);
+            echo view('template/footer_other');
         } else {
             //$this->Student->loginStudent();
             $this->password = $this->input->post('password');

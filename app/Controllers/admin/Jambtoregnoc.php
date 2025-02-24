@@ -32,10 +32,10 @@ class Jambtoregnoc extends BaseController {
         $k = 0;
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('admin/jambtoregno', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('admin/jambtoregno', $data);
+            echo view('template/footer_other');
         } else {
             $query = $this->db->get('jambtoreg');
             $k = 0;$l =0;

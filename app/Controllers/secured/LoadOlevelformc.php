@@ -26,10 +26,10 @@ class LoadOlevelformc extends BaseController{
     
     public function onesittings(){
         
-         $this->load->view('admissions/onesittings', $data);
+         echo view('admissions/onesittings', $data);
     }
     
     public function doublesittings(){
-        $this->load->view('admissions/doublesittings', $data);
+        echo view('admissions/doublesittings', $data);
     }
 }

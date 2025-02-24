@@ -71,10 +71,10 @@ class ViewRegCand extends BaseController {
         $data['applicantlist'] = $this->Report_m->get_applicants_list($config['per_page'], 0);
         $data['pagination'] = $this->pagination->create_links();
         //load the department_view 
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('secured/admin/ViewRegCand', $data);
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('secured/admin/ViewRegCand', $data);
+        echo view('template/footer_other');
     }
 
 }

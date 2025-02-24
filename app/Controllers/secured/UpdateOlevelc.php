@@ -27,10 +27,10 @@ class UpdateOlevelc extends BaseController {
         $this->load->helper('html');
         
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('admissions/onesittings', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('admissions/onesittings', $data);
+            echo view('template/footer_other');
         } else {
             $this->Olevels_m->registerOlevels_1_sittings();
             redirect('admissions/olevelupdatesuccessc', 'refresh');

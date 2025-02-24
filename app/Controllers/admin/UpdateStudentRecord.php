@@ -34,10 +34,10 @@ class UpdateStudentRecord extends BaseController {
         $this->form_validation->set_rules('jambid', 'JAMB ID', 'trim|xss_clean|required');
         
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('admin/updatestudentrecord', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('admin/updatestudentrecord', $data);
+            echo view('template/footer_other');
         } else {
             $vRegno = $this->input->post('regno');
             $Sname = $this->input->post('sname');

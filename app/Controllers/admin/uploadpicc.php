@@ -14,9 +14,9 @@ class Uploadpicc extends BaseController {
 
 	function index()
 	{
-                $this->load->view('template/header');
-		$this->load->view('staff/uploadpassport', array('error' => ' ' ));
-                $this->load->view('template/footer');
+                echo view('template/header');
+		echo view('staff/uploadpassport', array('error' => ' ' ));
+                echo view('template/footer');
 	}
 
 	function do_upload()
@@ -36,9 +36,9 @@ class Uploadpicc extends BaseController {
 		{
 			$error = array('error' => $this->upload->display_errors());
                         //print_r($error);
-			$this->load->view('template/header');
-                        $this->load->view('staff/uploadpassport', $error);
-                        $this->load->view('template/footer');
+			echo view('template/header');
+                        echo view('staff/uploadpassport', $error);
+                        echo view('template/footer');
 		}else{
 			$data = array('upload_data' => $this->upload->data());
 			$photoname = $data["upload_data"]["file_name"];
@@ -56,10 +56,10 @@ class Uploadpicc extends BaseController {
          $info = array('upload_data' => $this->upload->data(),'data' => $data);
          //print_r($info);
              if($this->db->affected_rows() > 0){
-                 $this->load->view('template/header');
-                 $this->load->view('menu/staffmenu');
-                 $this->load->view('staff/success', $info);
-                 $this->load->view('template/footer');
+                 echo view('template/header');
+                 echo view('menu/staffmenu');
+                 echo view('staff/success', $info);
+                 echo view('template/footer');
                  //echo '<meta http-equiv="refresh"' . 'content="0;URL="'.base_url().'index.php/successc">';
              }
 	}

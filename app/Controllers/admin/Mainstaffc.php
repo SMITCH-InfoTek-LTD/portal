@@ -23,10 +23,10 @@ class Mainstaffc extends BaseController {
         $this->load->library('table');
         $this->load->helper('url');
         $this->load->helper('html');
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('admin/mainstaff');
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('admin/mainstaff');
+        echo view('template/footer_other');
     }
 
 }

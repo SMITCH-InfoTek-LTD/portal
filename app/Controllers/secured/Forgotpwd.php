@@ -32,11 +32,11 @@ class Forgotpwd extends BaseController {
         
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/forgotpwd', $data);
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/forgotpwd', $data);
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->securedUpdate_m->updatesecured();
             redirect('secured/Preadmissionloginc', 'refresh');

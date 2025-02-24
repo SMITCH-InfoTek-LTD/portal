@@ -20,10 +20,10 @@ class Returningstudentc extends BaseController{
         $this->load->library('session');
         $this->load->database();
         $this->load->helper('html');
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('returningstudents');
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('returningstudents');
+        echo view('template/footer_other');
     }
 }
 

@@ -34,10 +34,10 @@ class Indexc extends BaseController{
         $this->load->library('session');
         $this->load->database();
         $this->load->helper('html');
-        $this->load->view('template/header');
-        $this->load->view('template/anastasiaHeadermenu');
-        $this->load->view('index');
-        $this->load->view('template/footer');
+        echo view('template/header');
+        echo view('template/anastasiaHeadermenu');
+        echo view('index');
+        echo view('template/footer');
     }
     
 }
