@@ -42,12 +42,11 @@ class Displaystudentreginfoc extends BaseController {
             $Sqlqry = "SELECT paymentItems.ItemCode,students.regno,"
                     . "paymentTrans.status,paymentTrans.academic_session,paymentTrans.message FROM paymentTrans,paymentItems,students"
                     . " WHERE (paymentItems.ItemCode = paymentTrans.Item_Code) AND (students.regno = paymentTrans.RegNumb)"
-                    . " AND((paymentTrans.status = '00') || (paymentTrans.status = '01'))AND((paymentItems.ItemCode = 'NON_SCI')||(paymentItems.ItemCode = 'SCI_C')||(paymentItems.ItemCode = 'OTHER_SCI'))"
-                    . " AND (paymentTrans.RegNumb='" . $this->RegNumb . "')AND(paymentTrans.academic_session='" . $this->session . "')";
+                    . " AND((paymentTrans.status = '00') || (paymentTrans.status = '01'))AND((paymentItems.ItemCode = '2001')||(paymentItems.ItemCode = '2003')||(paymentItems.ItemCode = '2002')||(paymentItems.ItemCode = '6001'))"
+                    . " AND (paymentTrans.RegNumb='" . $_SESSION['RegNumb'] . "')AND(paymentTrans.academic_session='" . $this->session . "')";
             $qry = $this->db->query($Sqlqry);
-          
             if ($qry->num_rows() > 0) {
-                
+                $row = $qry->row_array();
                     $_SESSION['session'] = $this->input->post('session');
                     $_SESSION['courses_first'] = $this->Courseregistration->fetchCoursesFirst();
                     $_SESSION['courses_second'] = $this->Courseregistration->fetchCoursesSecond();

@@ -68,6 +68,7 @@ class Displaystudentinfoc extends BaseController {
                 'mstatus' => $this->input->post('maritalstatus'),
                 'religion' => $this->input->post('religion'),
                 'ResidentialAddress' => $this->input->post('resaddr'),
+                'sex' => $this->input->post('Sex'),
                 'contactaddr' => $this->input->post('contactaddr'),
                 'Next_of_Kin_address' => $this->input->post('nokpermaddr'),
                 'Next_of_Kin_Name' => $this->input->post('nokname'),
