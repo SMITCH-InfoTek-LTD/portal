@@ -1,6 +1,6 @@
 <?php
 
-
+namespace App\Controllers;
 
 /*
  * To change this template, choose Tools | Templates

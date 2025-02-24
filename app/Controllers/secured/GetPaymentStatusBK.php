@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Controllers;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -34,7 +34,7 @@ class GetPaymentStatus extends BaseController {
         $this->output->set_header("Pragma: no-cache");
     }
 
-           $this->form_validation->set_error_delimiters('<div class="errormessage">', '</div>');
+        $this->form_validation->set_error_delimiters('<div class="errormessage">', '</div>');
         $this->form_validation->set_rules('RRR', 'RRR number', 'trim|required|xss_clean|alpha_numeric');
 
         if ($this->form_validation->run() == FALSE) {

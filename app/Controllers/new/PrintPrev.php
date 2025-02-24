@@ -1,6 +1,6 @@
 <?php
 
-
+namespace App\Controllers;
 
 /**
  * Description of Preadmissionlogin
