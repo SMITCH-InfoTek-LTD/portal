@@ -46,6 +46,7 @@ class Report_m extends Model {
         return $query->result();
     }
 
+    
     function updateCandidateProfile() {
         $this->JambID = $this->input->post('JambID');
         $this->sname = $this->input->post('sname');

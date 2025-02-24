@@ -35,12 +35,13 @@ class Search extends Model {
         $this->load->helper('url');
         $this->load->helper('security');
         $this->load->library('email');
+
     }
 
     function checkadminStatus($regno) {
         $query = $this->db->get_where('admittedstudents', array('RegNumb' => $regno));
         if ($query->num_rows() > 0) {
-            return $query->row_array();
+            return $query->row_array(); 
         } else {
             return FALSE;
         }
