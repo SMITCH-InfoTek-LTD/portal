@@ -28,10 +28,10 @@ class Searchcandidatec extends BaseController {
         $this->form_validation->set_rules('JambID', 'JambID', 'trim|required|min_length[6]|max_length[24]|xss_clean|callback_JambID_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/admin/searchCandidate', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/admin/searchCandidate', $data);
+            echo view('template/footer_other');
         } else {
             //$this->Student->loginStudent();
             $this->JambID = $this->input->post('JambID');

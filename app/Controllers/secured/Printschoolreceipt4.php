@@ -39,7 +39,7 @@ class Printschoolreceipt4 extends BaseController {
         $pdf->watermarkImageAlpha = 0.2;
         $pdf->SetWatermarkImage(base_url() . 'assets/images/logo.jpg');
         $pdf->showWatermarkImage = true;
-        $html = $this->load->view('secured/printschoolreceipttmpl4', $data, TRUE);
+        $html = echo view('secured/printschoolreceipttmpl4', $data, TRUE);
         //generate the PDF from the given html
         $this->stylesheet = file_get_contents(base_url() . 'assets/bootstrap/css/bootstrap.min.css');
         $this->stylesheet .= file_get_contents(base_url() . 'assets/css/layout.css');

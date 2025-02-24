@@ -27,10 +27,10 @@ class VerifyStudentInfoc extends BaseController {
         $this->form_validation->set_rules('phoneno', 'Phoneno', 'trim|required|min_length[11]|max_length[14]'); //|is_unique[tblregistered.phoneno]');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/verifystudentinfo', $data);
-            $this->load->view('template/footer');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/verifystudentinfo', $data);
+            echo view('template/footer');
         } else {
             $data = array('agree' => 'Yes', 'phoneno' => $this->input->post('phoneno'));
             $this->session->set_userdata($data);

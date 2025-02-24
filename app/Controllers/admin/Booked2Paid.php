@@ -32,10 +32,10 @@ class Booked2Paid extends BaseController{
         $k = 0;
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('admin/booked2paid', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('admin/booked2paid', $data);
+            echo view('template/footer_other');
         } else {
             $Sqlqry = "SELECT paymentItems.ItemCode,students.regno,paymentItems.ItemName,paymentTrans.Amount,"
                     . "paymentTrans.status,paymentTrans.academic_session,paymentTrans.message,paymentTrans.OrderID,"

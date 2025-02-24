@@ -40,11 +40,11 @@ class GetPaymentStatusRRR extends BaseController {
         $this->form_validation->set_rules('RRR', 'RRR number', 'trim|required|xss_clean|alpha_numeric|callback_RRRNUMB_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('bursary/getpaymentstatusRRR');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('bursary/getpaymentstatusRRR');
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->rrr = $this->input->post('RRR');
             $this->response = $this->Paymentremita_m->getPaymentStatus($this->rrr);

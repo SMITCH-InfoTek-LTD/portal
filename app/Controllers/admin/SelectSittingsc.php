@@ -30,11 +30,11 @@ class SelectSittingsc extends BaseController {
 
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/selectsittings', $data);
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/selectsittings', $data);
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->sittings = $this->input->post('sittings');
             $this->session->set_userdata('sittings', $this->sittings);

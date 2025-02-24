@@ -24,10 +24,10 @@ class GetStatusCheck extends BaseController {
     }
 
     public function index() {
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('admin/getstatuscheck');
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('admin/getstatuscheck');
+        echo view('template/footer_other');
     }
 
 }

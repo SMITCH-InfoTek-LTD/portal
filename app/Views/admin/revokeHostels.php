@@ -25,7 +25,7 @@ if (!isset($_SESSION['username'])) {
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-2 sidenav">
-                <?php $this->load->view('menu/menu'); ?>
+                <?php echo view('menu/menu'); ?>
             </div>
             <!-- main content -->
             <div class="col-sm-8 text-center">

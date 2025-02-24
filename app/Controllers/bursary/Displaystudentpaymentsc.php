@@ -30,8 +30,8 @@ class Displaystudentpaymentsc extends BaseController {
     public function index() {
         $data = array('title' => 'student payments'
         );
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
+        echo view('template/header');
+        echo view('template/header_menu');
         $config["base_url"] = base_url() . "index.php/bursary/Displaystudentpaymentsc";
         $config['total_rows'] = 10;
         $config['per_page'] = 1;
@@ -44,8 +44,8 @@ class Displaystudentpaymentsc extends BaseController {
         $data["vals"] = $_SESSION['results'];
         $str_links = $this->pagination->create_links();
         $data["links"] = explode('&nbsp;', $str_links);
-        $this->load->view('bursary/displaystudentpayments', $data);
-        $this->load->view('template/footer_other');
+        echo view('bursary/displaystudentpayments', $data);
+        echo view('template/footer_other');
     }
 
 }

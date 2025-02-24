@@ -13,7 +13,7 @@
                     <article>
                         <figure>
                             <figcaptionmenuL>
-                                <?php $this->load->view('menu/secured/studentmenuS'); ?>
+                                <?php echo view('menu/secured/studentmenuS'); ?>
                             </figcaptionmenuL>
                             <figcaptionHome>
                                 <div id="columnMainS">

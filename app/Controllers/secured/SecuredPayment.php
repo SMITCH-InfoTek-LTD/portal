@@ -43,11 +43,11 @@ class SecuredPayment extends BaseController {
 
         if ($this->form_validation->run() == FALSE) {
             $sub_data['cap_img'] = $this->Captcha->make_captcha();
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/securedpayment', $sub_data);
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/securedpayment', $sub_data);
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->acad_sess = ACADEMIC_SESSION;
             $this->itemCode = $this->input->post('ItemCode');

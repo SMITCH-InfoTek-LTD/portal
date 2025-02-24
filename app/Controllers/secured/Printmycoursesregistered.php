@@ -41,7 +41,7 @@ class Printmycoursesregistered extends BaseController {
         $pdf->watermarkImageAlpha = 0.2;
         $pdf->SetWatermarkImage(base_url() . 'assets/images/logo.jpg');
         $pdf->showWatermarkImage = true;
-        $html = $this->load->view('secured/printMyCoursesRegistered', $data, TRUE);
+        $html = echo view('secured/printMyCoursesRegistered', $data, TRUE);
 
         //generate the PDF from the given html
         $this->stylesheet = file_get_contents(base_url() . 'assets/bootstrap/css/bootstrap.min.css');

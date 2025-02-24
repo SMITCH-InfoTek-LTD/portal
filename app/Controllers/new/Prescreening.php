@@ -41,11 +41,11 @@ class Prescreening extends BaseController{
 
         if ($this->form_validation->run() == FALSE) {
             $sub_data['cap_img'] = $this->Captcha->make_captcha();
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('new/prescreeningfee', $sub_data);
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('new/prescreeningfee', $sub_data);
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->acad_sess = $this->input->post('academic_session');
             $this->itemname = $this->input->post('itemname');

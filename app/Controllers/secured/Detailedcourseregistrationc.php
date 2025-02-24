@@ -39,10 +39,10 @@ class Detailedcourseregistrationc extends BaseController {
         $this->form_validation->set_rules('2ndcunit', 'Second semester total credit load', 'trim|required|xss_clean|integer|callback_checkMaxCreditLoad2nd_check');
         $this->load->helper('html');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/detailedCourseregistration', $this->data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/detailedCourseregistration', $this->data);
+            echo view('template/footer_other');
         } else {
 
             $this->Courseregistration->registerCourses();

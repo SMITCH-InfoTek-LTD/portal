@@ -33,11 +33,11 @@ class HostelReceipts extends BaseController {
         $this->form_validation->set_rules('RRR', 'RRR number', 'trim|required|xss_clean|alpha_numeric|callback_RRRNUMB_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/hostelreceipts');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/hostelreceipts');
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $regno = $_SESSION['RegNumb'];
             $query = $this->db->get_where('allocations', array('regno' => $regno, 'status' => 'PAID'));

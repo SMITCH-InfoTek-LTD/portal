@@ -26,10 +26,10 @@ class ReceiptAdmchkc extends BaseController {
     }
 
     public function index() {
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('new/receiptAdmchk');
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('new/receiptAdmchk');
+        echo view('template/footer_other');
     }
 
     public function remita_transaction_details($val) {

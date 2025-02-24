@@ -39,11 +39,11 @@ class Export2Excel extends BaseController {
     public function index() {
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('bursary/export2excel');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('bursary/export2excel');
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $filename = "studentaccounts.csv";
             $sql = "SELECT students.regno,students.Sname,students.Fname,students.fact,students.dept,paymentTrans.Amount,paymentTrans.transactiontime,paymentItems.ItemName,paymentTrans.academic_session FROM students,paymentTrans,paymentItems,admittedstudents WHERE(admittedstudents.RegNumb=paymentTrans.RegNumb)AND(paymentItems.ItemCode=paymentTrans.Item_Code)AND((paymentTrans.status='01') || (paymentTrans.status ='00'))ORDER BY paymentTrans.transID ASC";

@@ -17,7 +17,7 @@ if (!isset($_SESSION['staffID'])) {
         <div id="menuleft">
             <ul><h5>more menu...</h5>
                 <?php
-                $this->load->view('menu/sidemenu');
+                echo view('menu/sidemenu');
                 ?>
             </ul>
         </div>

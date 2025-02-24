@@ -42,14 +42,14 @@ class PrintmyHostelReceipts extends BaseController{
         $pdf->watermarkImageAlpha = 0.2;
         $pdf->SetWatermarkImage(base_url() . 'assets/images/logo.jpg');
         $pdf->showWatermarkImage = true;
-        $html = $this->load->view('secured/printMyhostelreceipts', $data, TRUE);
+        $html = echo view('secured/printMyhostelreceipts', $data, TRUE);
 
         //generate the PDF from the given html
         $this->stylesheet = file_get_contents(base_url() . 'assets/bootstrap/css/bootstrap.min.css');
         $pdf->WriteHTML($this->stylesheet, 1);
         $pdf->WriteHTML($html);
 
-        $html2 = $this->load->view('secured/printHostelCard', $data, TRUE);
+        $html2 = echo view('secured/printHostelCard', $data, TRUE);
         $pdf->SetHeader('Dean Student Affairs|Hostel Identity Card|{PAGENO}');
         $pdf->SetFooter('Hostel Allocation');
         $pdf->defaultheaderfontsize = 10;
@@ -62,7 +62,7 @@ class PrintmyHostelReceipts extends BaseController{
         $pdf->WriteHTML($html2);
 
         /*********/
-        $html3 = $this->load->view('secured/printMyhostelreceipts2', $data, TRUE);
+        $html3 = echo view('secured/printMyhostelreceipts2', $data, TRUE);
         $pdf->SetHeader('Office of Bursary|School Fees receipt|{PAGENO}');
         $pdf->SetFooter('Hostel Allocation');
         $pdf->defaultheaderfontsize = 10;

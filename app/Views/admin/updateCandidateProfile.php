@@ -111,7 +111,7 @@ if (!isset($_SESSION['staffID'])) {
                 <section id="services" class="last clear">
                     <article class="one_third">
                         <figcaptionmenuL>
-                            <?php $this->load->view('menu/secured/staffmenu'); ?>
+                            <?php echo view('menu/secured/staffmenu'); ?>
                         </figcaptionmenuL>
                     </article>
                     <article>

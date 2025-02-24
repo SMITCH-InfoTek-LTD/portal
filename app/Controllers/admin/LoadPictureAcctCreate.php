@@ -21,10 +21,10 @@ class LoadPictureAcctCreate extends BaseController {
     }
 
     function index() {
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('secured/uploadpassport2', array('error' => ' '));
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('secured/uploadpassport2', array('error' => ' '));
+        echo view('template/footer_other');
     }
 
     function do_upload() {
@@ -41,19 +41,19 @@ class LoadPictureAcctCreate extends BaseController {
         if (!$this->upload->do_upload()) {
             $error = array('error' => $this->upload->display_errors());
             //print_r($error);
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/uploadpassport2', $error);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/uploadpassport2', $error);
+            echo view('template/footer_other');
         } else {
 
             $query = $this->db->get_where('tblstudents_temp', array('JambID' => $this->session->userdata('JambID')));
             if ($query->num_rows() > 0) {
                 $errorUploading['errorUploading'] = "<font color=red>Your information has been updated.</font><br/>";
-                $this->load->view('template/header');
-                $this->load->view('template/header_menu');
-                $this->load->view('secured/errorUploading', $errorUploading);
-                $this->load->view('template/footer_other');
+                echo view('template/header');
+                echo view('template/header_menu');
+                echo view('secured/errorUploading', $errorUploading);
+                echo view('template/footer_other');
             } else {
                 //$_FILES["userfiles"]['name'] = $this->session->userdata('JambID');
                 //$config['file_name'] = $_FILES["userfiles"]['name']; 
@@ -69,10 +69,10 @@ class LoadPictureAcctCreate extends BaseController {
                 $query = $this->db->get_where('tblstudents_temp', array('JambID' => $this->session->userdata('JambID')));
                 if ($query->num_rows() > 0) {
                     $errorUploading['errorUploading'] = "<font color=red>Your information has been updated.</font><br/>";
-                    $this->load->view('template/header');
-                    $this->load->view('template/header_menu');
-                    $this->load->view('secured/errorUploading', $errorUploading);
-                    $this->load->view('template/footer_other');
+                    echo view('template/header');
+                    echo view('template/header_menu');
+                    echo view('secured/errorUploading', $errorUploading);
+                    echo view('template/footer_other');
                 } else {
                     $this->db->insert('tblstudents_temp', $data);
                     if ($this->db->affected_rows() > 0) {
@@ -107,10 +107,10 @@ class LoadPictureAcctCreate extends BaseController {
                         //redirect('secured/Preadmissionloginc', 'refresh');
                         //**************/
                         $info = array('upload_data' => $this->upload->data(), 'data' => $data);
-                        $this->load->view('template/header');
-                        $this->load->view('template/header_menu');
-                        $this->load->view('secured/acctPicUploadSuccess', $info);
-                        $this->load->view('template/footer_other');
+                        echo view('template/header');
+                        echo view('template/header_menu');
+                        echo view('secured/acctPicUploadSuccess', $info);
+                        echo view('template/footer_other');
                     }
                 }
             }

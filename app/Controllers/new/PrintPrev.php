@@ -30,11 +30,11 @@ class PrintPrev extends BaseController {
         $this->form_validation->set_rules('RegNumb', 'Jamb ID', 'trim|required|xss_clean|alpha_numeric');
         $this->form_validation->set_rules('surname', 'Surname', 'trim|required|xss_clean');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('new/printprev', $sub_data);
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('new/printprev', $sub_data);
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->RegNumb = $this->input->post('RegNumb');
             $this->surname = $this->input->post('surname');
@@ -121,11 +121,11 @@ class PrintPrev extends BaseController {
       $this->form_validation->set_rules('surname', 'Surname', 'trim|required|xss_clean');
 
       if ($this->form_validation->run() == FALSE) {
-      $this->load->view('template/header');
-      $this->load->view('template/header_menu');
-      $this->load->view('new/printprev');
+      echo view('template/header');
+      echo view('template/header_menu');
+      echo view('new/printprev');
       $this->form_validation->set_message('rule', 'Error Message');
-      $this->load->view('template/footer_other');
+      echo view('template/footer_other');
       } else {
       $this->RegNumb = $this->input->post('RegNumb');
       $this->surname = $this->input->post('surname');
@@ -158,7 +158,7 @@ class PrintPrev extends BaseController {
       $pdfFilePath = $this->session->userdata('RegNumb') . ".pdf";
       $pdf = $this->m_pdf->load();
       //$pdf->SetProtection(array('copy','print'), $this->session->userdata('RegNumb'),$this->session->userdata('RegNumb'));
-      $html = $this->load->view('new/printadmission', $data, TRUE);
+      $html = echo view('new/printadmission', $data, TRUE);
       //generate the PDF from the given html
       $pdf->WriteHTML($html);
       //download it.

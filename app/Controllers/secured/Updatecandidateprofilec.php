@@ -49,10 +49,10 @@ class Updatecandidateprofilec extends BaseController {
 
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/admin/updateCandidateProfile', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/admin/updateCandidateProfile', $data);
+            echo view('template/footer_other');
         } else {
             $register = $this->Report_m->updateCandidateProfile();
             if (!$register) {

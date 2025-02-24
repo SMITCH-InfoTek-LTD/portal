@@ -54,7 +54,7 @@
             <p><b>Reason: </b><?php echo $_SESSION['message']; ?><p>
             <?php } ?>
                 <div class="col-sm-2 sidenav">
-                <?php //$this->load->view('template/menu/sidenav'); ?>
+                <?php //echo view('template/menu/sidenav'); ?>
             </div>
         </div>
     </div>

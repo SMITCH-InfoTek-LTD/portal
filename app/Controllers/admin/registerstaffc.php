@@ -58,10 +58,10 @@ class Registerstaffc extends BaseController{
         
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('menu/staffmenu');
-            $this->load->view('staff/registerStaff', $data);
-            $this->load->view('template/footer');
+            echo view('template/header');
+            echo view('menu/staffmenu');
+            echo view('staff/registerStaff', $data);
+            echo view('template/footer');
         } else {
             $register = $this->Staff_m->registerStaff();
             if (!$register) {

@@ -23,11 +23,11 @@ class Preadmissionloginc extends BaseController {
         $this->form_validation->set_rules('Password', 'password', 'trim|required|xss_clean|alpha_numeric|callback_password_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/preadmissionlogin', $data);
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/preadmissionlogin', $data);
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             //$this->Student_m->getStudentDetails();
             $this->jambID = $this->input->post('JambID');

@@ -24,11 +24,11 @@ class Processpayment extends BaseController{
         $this->form_validation->set_error_delimiters('<div class="errormessage">', '</div>');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/processpayment', $data);
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/processpayment', $data);
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else{
             $this->Paymentremita_m->payment();
         }

@@ -31,22 +31,22 @@ class Printregisteredcourses extends BaseController {
     //put your code here
     public function index() {
 
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('secured/printregisteredcourses');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('secured/printregisteredcourses');
         $this->form_validation->set_message('rule', 'Error Message');
-        $this->load->view('template/footer_other');
+        echo view('template/footer_other');
     }
 
     public function printcoursesregistered() {
         $this->form_validation->set_error_delimiters('<div class="errormessage">', '</div>');
         $this->form_validation->set_rules('session', 'Session', 'trim|required|xss_clean');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/printregisteredcourses');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/printregisteredcourses');
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->session = $this->input->post('session');
             $_SESSION['session'] = $this->session;

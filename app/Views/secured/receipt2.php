@@ -18,7 +18,7 @@ if (isset($_SESSION["response"])) {
         <div class="row content">
             <div class="col-sm-2">
                 <p style="background-color: transparent">
-                    <?php $this->load->view('menu/studentmenuS'); ?>
+                    <?php echo view('menu/studentmenuS'); ?>
                 </p>
             </div>
             <div class="col-sm-8 text-center">
@@ -129,7 +129,7 @@ if (isset($_SESSION["response"])) {
                 </div>
             </div>
             <div class="col-sm-2 sidenav">
-                <?php $this->load->view('template/menu/sidenav'); ?>
+                <?php echo view('template/menu/sidenav'); ?>
             </div>
         </div>
     </div>

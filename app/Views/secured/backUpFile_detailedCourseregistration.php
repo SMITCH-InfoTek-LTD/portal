@@ -102,7 +102,7 @@ if (!isset($_SESSION['RegNumb'])) {
                     echo img($image_properties);
                     ?>
                 </p>
-                <p><?php $this->load->view('menu/studentmenuS'); ?></p>
+                <p><?php echo view('menu/studentmenuS'); ?></p>
             </div>
             <!-- main content -->
             <div class="col-sm-10 text-center">

@@ -28,7 +28,7 @@ if(isset($_SESSION['RegNumb'])&&($_SESSION["StatChange"]=="F")) {
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-2">
-                <p><?php $this->load->view('menu/studentmenuS'); ?></p>
+                <p><?php echo view('menu/studentmenuS'); ?></p>
             </div>
             <!-- main content -->
             <div class="col-sm-10 text-center">

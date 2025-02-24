@@ -15,10 +15,10 @@ class Loadpicc extends BaseController {
     }
 
     function index() {
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('secured/uploadpassport', array('error' => ' '));
-        $this->load->view('template/footer_other');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('secured/uploadpassport', array('error' => ' '));
+        echo view('template/footer_other');
     }
 
     function do_upload() {
@@ -35,19 +35,19 @@ class Loadpicc extends BaseController {
         if (!$this->upload->do_upload()) {
             $error = array('error' => $this->upload->display_errors());
             //print_r($error);
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/uploadpassport', $error);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/uploadpassport', $error);
+            echo view('template/footer_other');
         } else {
 
             $query = $this->db->get_where('tblstudents_temp', array('JambID' => $this->session->userdata('JambID')));
             if ($query->num_rows() > 0) {
                 $errorUploading['errorUploading'] = "<font color=red>Your information has been updated.</font><br/>";
-                $this->load->view('template/header');
-                $this->load->view('template/header_menu');
-                $this->load->view('secured/errorUploading', $errorUploading);
-                $this->load->view('template/footer_other');
+                echo view('template/header');
+                echo view('template/header_menu');
+                echo view('secured/errorUploading', $errorUploading);
+                echo view('template/footer_other');
             } else {
                 $datapic = array('upload_data' => $this->upload->data());
                 $photoname = $datapic["upload_data"]["file_name"];
@@ -79,19 +79,19 @@ class Loadpicc extends BaseController {
                 $query = $this->db->get_where('tblstudents_temp', array('JambID' => $this->session->userdata('JambID')));
                 if ($query->num_rows() > 0) {
                     $errorUploading['errorUploading'] = "<font color=red>Your information has been updated.</font><br/>";
-                    $this->load->view('template/header');
-                    $this->load->view('template/header_menu');
-                    $this->load->view('secured/errorUploading', $errorUploading);
-                    $this->load->view('template/footer_other');
+                    echo view('template/header');
+                    echo view('template/header_menu');
+                    echo view('secured/errorUploading', $errorUploading);
+                    echo view('template/footer_other');
                 } else {
                     $this->db->insert('tblstudents_temp', $data);
                     if ($this->db->affected_rows() > 0) {
                         $info = array('upload_data' => $this->upload->data(), 'data' => $data);
                         //print_r($info);
-                        $this->load->view('template/header');
-                        $this->load->view('template/header_menu');
-                        $this->load->view('secured/updateStudentSuccess', $info);
-                        $this->load->view('template/footer_other');
+                        echo view('template/header');
+                        echo view('template/header_menu');
+                        echo view('secured/updateStudentSuccess', $info);
+                        echo view('template/footer_other');
                         //echo '<meta http-equiv="refresh"' . 'content="0;URL="'.base_url().'index.php/successc">';
                     }
                 }

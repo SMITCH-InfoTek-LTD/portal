@@ -27,10 +27,10 @@ class Grantaccessstaffinfoc extends BaseController {
         $this->load->helper('html');
         $this->form_validation->set_rules('roleid', 'Role ID', 'trim|required|xss_clean');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('menu/staffmenu');
-            $this->load->view('staff/grantaccessstaffinfo', $data);
-            $this->load->view('template/footer');
+            echo view('template/header');
+            echo view('menu/staffmenu');
+            echo view('staff/grantaccessstaffinfo', $data);
+            echo view('template/footer');
         } else {
             $grantaccess = $this->Staff_m->grantAccess();
             if (!$grantaccess) {

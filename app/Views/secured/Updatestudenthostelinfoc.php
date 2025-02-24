@@ -30,10 +30,10 @@ class Updatestudenthostelinfoc extends BaseController {
 
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/updatestudentHostelinfo', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/updatestudentHostelinfo', $data);
+            echo view('template/footer_other');
         } else {
             $vRegno = $this->session->userdata('RegNumb');
             $vFact = $this->input->post('faculty');

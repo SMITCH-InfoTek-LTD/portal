@@ -3,7 +3,7 @@
         <div id="menuleft">
             <ul><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Side Menu</h5>
                 <?php
-                $this->load->view('menu/sidemenu');
+                echo view('menu/sidemenu');
                 ?>
             </ul>
         </div>

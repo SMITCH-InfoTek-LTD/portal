@@ -43,10 +43,10 @@ class Searchcandidatec extends BaseController {
         $this->form_validation->set_rules('RegNumb', 'RegNumb', 'trim|required|min_length[6]|max_length[24]|xss_clean|callback_RegNumb_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('bursary/searchCandidate', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('bursary/searchCandidate', $data);
+            echo view('template/footer_other');
         } else {
                 $this->RegNumb = $this->input->post('RegNumb');
                 $_SESSION['results'] =   $this->BursaryReporting->getStudentsPayments($this->RegNumb);

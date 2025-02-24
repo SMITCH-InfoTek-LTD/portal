@@ -44,10 +44,10 @@ class CreateAcct extends BaseController {
 
         if ($this->form_validation->run() == FALSE) {
             //$data['lists'] = $this->Student_m->get_dropdown_list();
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/createaccount', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/createaccount', $data);
+            echo view('template/footer_other');
         } else {
             //creating sessions
             $this->Update_m->createAcct();

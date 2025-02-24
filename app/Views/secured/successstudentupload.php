@@ -18,7 +18,7 @@ which will give better service to the alumni students.";
             <div id="menuleft">
                 <ul><h5>more menu...</h5>
                     <?php
-                    //$this->load->view('sidemenu');
+                    //echo view('sidemenu');
                     ?>
                 </ul>
             </div>
@@ -80,7 +80,7 @@ which will give better service to the alumni students.";
         <div id="menuRightH">
             <ul><h5>more menu...</h5>
                 <?php
-                $this->load->view('menu/sidemenu');
+                echo view('menu/sidemenu');
                 ?>
             </ul>    
         </div>

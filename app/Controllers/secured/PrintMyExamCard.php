@@ -44,7 +44,7 @@ class PrintMyExamCard extends BaseController {
         $pdf->watermarkImageAlpha = 1.0;
         $pdf->SetWatermarkImage(base_url() . 'assets/images/DAP.jpg');
         $pdf->showWatermarkImage = true;
-        $html = $this->load->view('secured/printmyexamcard', $data, TRUE);
+        $html = echo view('secured/printmyexamcard', $data, TRUE);
 
         //generate the PDF from the given html
         $this->stylesheet = file_get_contents(base_url() . 'assets/bootstrap/css/bootstrap.min.css');
@@ -56,7 +56,7 @@ class PrintMyExamCard extends BaseController {
          *
          *
          **/
-	$html2 = $this->load->view('secured/examrules', $data, TRUE);
+	$html2 = echo view('secured/examrules', $data, TRUE);
         $pdf->SetHeader('University of Abuja|Student Examination Rules|{PAGENO}');
         $pdf->SetFooter('University of Abuja');
         $pdf->defaultheaderfontsize = 10;

@@ -31,11 +31,11 @@ class PrintHostelreceipt extends BaseController {
 
     public function index() {
         
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
-        $this->load->view('secured/printhostelreceipts');
+        echo view('template/header');
+        echo view('template/header_menu');
+        echo view('secured/printhostelreceipts');
         $this->form_validation->set_message('rule', 'Error Message');
-        $this->load->view('template/footer_other');
+        echo view('template/footer_other');
     }
 
 }

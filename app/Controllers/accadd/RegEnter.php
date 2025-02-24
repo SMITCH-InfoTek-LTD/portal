@@ -25,11 +25,11 @@ class RegnoEnter extends BaseController {
         $this->form_validation->set_rules('rrrno', 'RRR Number', 'trim|required|xss_clean|numeric|callback_rrrno_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('new/regenter');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('new/regenter');
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->rrrno = $this->input->post('rrrno');
             $this->password = $this->input->post('password');

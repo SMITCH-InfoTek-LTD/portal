@@ -51,10 +51,10 @@ class Displaystudentinfoc extends BaseController {
 
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/displaystudentinfo', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/displaystudentinfo', $data);
+            echo view('template/footer_other');
         } else {
             $datestring = "Y-m-d h:i a";
             $time = time();

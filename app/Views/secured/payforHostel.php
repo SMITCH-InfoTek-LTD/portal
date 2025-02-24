@@ -29,7 +29,7 @@ if (!isset($_SESSION['RegNumb'])) {
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-3 sidenav">
-                <p><?php $this->load->view('menu/studentmenuS'); ?></p>
+                <p><?php echo view('menu/studentmenuS'); ?></p>
             </div>
             <!-- main content -->
             <div class="col-sm-6 text-center">
@@ -133,7 +133,7 @@ if (!isset($_SESSION['RegNumb'])) {
             </div>
 
             <div class="col-sm-3 sidenav">
-                <?php $this->load->view('template/menu/sidenav'); unset($_SESSION['paymsg']);?>
+                <?php echo view('template/menu/sidenav'); unset($_SESSION['paymsg']);?>
             </div>
         </div>
     </div>

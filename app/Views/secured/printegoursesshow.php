@@ -165,7 +165,7 @@ if (!isset($_SESSION['RegNumb'])) {
         <div class="row content">
             <div class="col-sm-2">
                 <p style="background-color: transparent">
-                    <?php $this->load->view('menu/studentmenuS'); ?>
+                    <?php echo view('menu/studentmenuS'); ?>
                 </p>
             </div>
             <!-- main content -->
@@ -279,7 +279,7 @@ if (!isset($_SESSION['RegNumb'])) {
                 <!-- / content body -->
             </div>
             <div class="col-sm-2 sidenav">
-                <?php $this->load->view('template/menu/sidenav'); ?>
+                <?php echo view('template/menu/sidenav'); ?>
             </div>
         </div>
     </div>

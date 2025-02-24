@@ -31,10 +31,10 @@ class UploadOlevelc extends BaseController {
         $this->form_validation->set_rules('exambody', 'Exam Body', 'xss_clean|required');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/uploadOlevel', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/uploadOlevel', $data);
+            echo view('template/footer_other');
         } else {
             $sittings = $this->input->post('sittings');
 

@@ -11,7 +11,7 @@ if(isset($_SESSION['RegNumb'])&&($_SESSION["StatChange"]=="F")) {
     <div class="container-fluid text-center" id="m">
         <div class="row content">
             <div class="col-sm-2 sidenav">
-                <p><?php $this->load->view('menu/studentmenuS'); ?></p>
+                <p><?php echo view('menu/studentmenuS'); ?></p>
             </div>
             <!-- main content -->
             <div class="col-sm-8 text-center">
@@ -134,7 +134,7 @@ echo "<font color='red'><b>MAKE SURE YOU BOOKED FOR AN HOSTEL BEFORE PAYING!!!<b
 
 
             <div class="col-sm-2 sidenav">
-                <?php $this->load->view('template/menu/sidenav'); ?>
+                <?php echo view('template/menu/sidenav'); ?>
             </div>
         </div>
     </div>

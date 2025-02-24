@@ -39,11 +39,11 @@ class MyReceipt2 extends BaseController {
         $this->form_validation->set_rules('RRR', 'RRR number', 'trim|required|xss_clean|alpha_numeric|callback_RRRNUMB_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/myreceipt2');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/myreceipt2');
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
              $this->rrr = $this->input->post('RRR');
             $this->ItemCode = $this->input->post('Item_Code');
@@ -71,11 +71,11 @@ class MyReceipt2 extends BaseController {
         $this->form_validation->set_rules('RRR', 'RRR number', 'trim|required|xss_clean|alpha_numeric|callback_RRRNUMB_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/myreceipt2');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/myreceipt2');
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->response = $this->Paymentremita_m->printreceipt();
             if (isset($this->response)) {

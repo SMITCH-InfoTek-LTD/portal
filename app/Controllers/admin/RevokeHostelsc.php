@@ -30,10 +30,10 @@ class RevokeHostelsc extends BaseController {
 
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('admin/revokeHostels', $data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('admin/revokeHostels', $data);
+            echo view('template/footer_other');
         } else {
             $vStatus = "BOOKED";
             $query = $this->db->get_where('allocations', array('status' => $vStatus));

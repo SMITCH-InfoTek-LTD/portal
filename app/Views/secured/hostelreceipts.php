@@ -8,7 +8,7 @@ if (!isset($_SESSION["RegNumb"])) {
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-sm-2 sidenav">
-                <p><?php $this->load->view('menu/studentmenuS'); ?></p>
+                <p><?php echo view('menu/studentmenuS'); ?></p>
             </div>
 
             <!-- main content -->

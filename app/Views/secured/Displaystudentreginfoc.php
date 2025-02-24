@@ -29,10 +29,10 @@ class Displaystudentreginfoc extends BaseController {
         $this->data = array('title' => 'Student Display Info');
         $this->form_validation->set_rules('session', 'Session ', 'trim|required|xss_clean');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/displaystudentreginfo', $this->data);
-            $this->load->view('template/footer_other');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/displaystudentreginfo', $this->data);
+            echo view('template/footer_other');
         } else {
 
             //test for whether student has paid school fees

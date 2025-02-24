@@ -25,11 +25,11 @@ class RegnoEnter extends BaseController {
         $this->form_validation->set_rules('regno', 'Reg Number', 'trim|required|xss_clean|numeric|callback_regno_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('accadd/regnoenter');
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('accadd/regnoenter');
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->regno = $this->input->post('regno');
             $query = $this->db->get_where('paymentTrans', array('RegNumb' => $this->regno,'Amount'=>25000));

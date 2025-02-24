@@ -25,11 +25,11 @@ class PrintMyDetails extends BaseController {
         $this->load->helper('html');
         $this->load->library('table');
         $this->load->model('secured/Olevels_m');
-        $this->load->view('template/header');
-        $this->load->view('template/header_menu');
+        echo view('template/header');
+        echo view('template/header_menu');
         $this->Olevels_m->viewOlevelSubjects();
-        $this->load->view('secured/printMyDetails', $data);
-        $this->load->view('template/footer_other');
+        echo view('secured/printMyDetails', $data);
+        echo view('template/footer_other');
     }
 
 }

@@ -32,11 +32,11 @@ class securedPayment extends BaseController {
         $this->form_validation->set_rules('paymenttype', 'Payment type', 'trim|required|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('template/header_menu');
-            $this->load->view('secured/securedpayment', $data);
+            echo view('template/header');
+            echo view('template/header_menu');
+            echo view('secured/securedpayment', $data);
             $this->form_validation->set_message('rule', 'Error Message');
-            $this->load->view('template/footer_other');
+            echo view('template/footer_other');
         } else {
             $this->Paymentremita_m->Payment();
             redirect('secured/Processpayment', 'refresh');

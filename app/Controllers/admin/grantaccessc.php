@@ -28,10 +28,10 @@ class Grantaccessc extends BaseController {
         $this->form_validation->set_rules('staffID', 'StaffID', 'trim|required|min_length[6]|max_length[24]|xss_clean|callback_staffID_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('template/header');
-            $this->load->view('menu/staffmenu');
-            $this->load->view('staff/grantAccess', $data);
-            $this->load->view('template/footer');
+            echo view('template/header');
+            echo view('menu/staffmenu');
+            echo view('staff/grantAccess', $data);
+            echo view('template/footer');
         } else {
             //$this->Student->loginStudent();
             $this->staffID = $this->input->post('staffID');
