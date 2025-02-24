@@ -79,7 +79,7 @@ class Updatestudenthostelinfoc extends BaseController {
             $Sqlqry = "SELECT paymentItems.ItemCode,students.regno,"
                     . "paymentTrans.status,paymentTrans.academic_session,paymentTrans.message FROM paymentTrans,paymentItems,students"
                     . " WHERE (paymentItems.ItemCode = paymentTrans.Item_Code) AND (students.regno = paymentTrans.RegNumb)"
-                    . " AND((paymentTrans.status = '00') || (paymentTrans.status = '01'))AND((paymentItems.ItemCode = 'NON_SCI')||(paymentItems.ItemCode = 'SCI_C')||(paymentItems.ItemCode = 'OTHER_SCI'))"
+                    . " AND((paymentTrans.status = '00') || (paymentTrans.status = '01'))AND((paymentItems.ItemCode = '2001')||(paymentItems.ItemCode = '2002')||(paymentItems.ItemCode = '2003'))"
                     . " AND (paymentTrans.RegNumb='" . $_SESSION['RegNumb'] . "')AND(paymentTrans.academic_session='" . ACADEMIC_SESSION . "')";
             $qry = $this->db->query($Sqlqry);
             if ($qry->num_rows() > 0) {
@@ -100,16 +100,17 @@ class Updatestudenthostelinfoc extends BaseController {
                     $row = $query->row_array();
                     $vFcode = $row['fcode'];
                 }
-/*******Code to prevent students whose faculty is in Main to book in Mini**********
-//                $res = strpos($vFcode, $vMyFact);
-//                if ($res === FALSE) {
-//                    $msg = "Sorry. You can Only Book Hostels Where Your Faculty Is Located!!! ";
-//                   $_SESSION['paymsg'] = $msg;
-//                    $this->session->mark_as_flash('paymsg');
-//                    //echo "<script type='text/javascript'>alert('$msg');</script>";
-//                    redirect('secured/Updatestudenthostelinfoc', 'refresh');
-//                }
-****************************************WICKED CODE*******************************************/
+/******CODE TO BOOKED ONLY WHERE YOUR FACULTY IS LOCATED WICKED CODE***********
+                $res = strpos($vFcode, $vMyFact);
+                if ($res === FALSE) {
+                    $msg = "Sorry. You can Only Book Hostels Where Your Faculty Is Located!!! ";
+                    $_SESSION['paymsg'] = $msg;
+                    $this->session->mark_as_flash('paymsg');
+                    //echo "<script type='text/javascript'>alert('$msg');</script>";
+                    redirect('secured/Updatestudenthostelinfoc', 'refresh');
+                }
+******END OF CODE TO BOOKED ONLY WHERE YOUR FACULTY IS LOCATED WICKED CODE***********/
+
                 $vStatus = "BOOKED";
                 $query = $this->db->get_where('allocations', array('regno' => $vRegno, 'status' => $vStatus));
                 if ($query->num_rows() > 0) {
@@ -132,7 +133,7 @@ class Updatestudenthostelinfoc extends BaseController {
                         $this->db->update('allocations', $data2);
                         if ($this->db->affected_rows() > 0) {
                             $msg2 = 'Your Hostel Is [' . $vHostel . ' BedSpace Number ' . $vBed . ']';
-                            $msg2 .= "Your Booking Is Successful!!! " . $msg;
+                            $msg2 .= "Your Booking Is Successful!!! " . $msg2;
                             $_SESSION['paymsg'] = $msg2;
                             $this->session->mark_as_flash('paymsg');
                             //echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -153,6 +154,7 @@ class Updatestudenthostelinfoc extends BaseController {
                     }
                 }
             } elseif ($qry->num_rows() == 0) {
+            //var_dump($_SESSION);die();
                 $sql = "SELECT * FROM newStudentSchoolFeesSocketWork WHERE"
                         . "(newStudentSchoolFeesSocketWork.REGISTRATION_NUMBER='" . $_SESSION['RegNumb'] . "')";
                 $query = $this->db->query($sql);
@@ -174,7 +176,7 @@ class Updatestudenthostelinfoc extends BaseController {
                         $row = $query->row_array();
                         $vFcode = $row['fcode'];
                     }
-/*******Code to prevent students whose faculty is in Main to book in Mini**********
+/******CODE TO BOOKED ONLY WHERE YOUR FACULTY IS LOCATED WICKED CODE***********
                     $res = strpos($vFcode, $vMyFact);
                     if ($res === FALSE) {
                         $msg = "Sorry. You can Only Book Hostels Where Your Faculty Is Located!!! ";
@@ -183,7 +185,7 @@ class Updatestudenthostelinfoc extends BaseController {
                         //echo "<script type='text/javascript'>alert('$msg');</script>";
                         redirect('secured/Updatestudenthostelinfoc', 'refresh');
                     }
-********************WICKED CODE*****************************/
+******END OF CODE TO BOOKED ONLY WHERE YOUR FACULTY IS LOCATED WICKED CODE***********/
                     $vStatus = "BOOKED";
                     $query = $this->db->get_where('allocations', array('regno' => $vRegno, 'status' => $vStatus));
                     if ($query->num_rows() > 0) {

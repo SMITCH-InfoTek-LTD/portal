@@ -26,6 +26,7 @@ class SecuredPayment extends BaseController {
         $this->load->model('ug/Student_m');
         $this->load->helper('captcha');
         $this->load->model('ug/Paymentremita_m');
+        $this->load->model('ug/Paychangeremita_m');
         $this->load->helper('html');
         $this->load->model('admin/Captcha');
     }
@@ -48,77 +49,94 @@ class SecuredPayment extends BaseController {
             $this->form_validation->set_message('rule', 'Error Message');
             $this->load->view('template/footer_other');
         } else {
-            //$this->Paymentremita_m->payment();
-            //redirect('secured/Processpayment', 'refresh');
-            //return TRUE;
-            $this->acad_sess = $this->input->post('academic_session');
-            $this->itemname = $this->input->post('itemname');
+            $this->acad_sess = ACADEMIC_SESSION;
             $this->itemCode = $this->input->post('ItemCode');
             $this->db->from('paymentTrans');
             $this->db->where('RegNumb', $_SESSION['RegNumb']);
             $this->db->where('Item_Code', $this->itemCode);
+            $this->db->where('academic_session', $this->acad_sess);
             $this->db->where('status', '01');
-            $this->db->or_where('status', '021');
             $query = $this->db->get();
             if ($query->num_rows() > 0) {
                 $row = $query->row_array();
-
+                //var_dump($row);
+                //die();
+                //echo "Got here 1";
                 foreach ($query->result() as $row) {
-
                     if ($row->status == '01') {
                         $this->db->from('paymentItems');
                         $this->db->where('MultiPay', 'Yes');
                         $this->db->where('ItemCode', $this->itemCode);
                         $query = $this->db->get();
                         if ($query->num_rows() > 0) {
+                            $row = $query->row_array();
+                            //echo "Got here 2";
                             $this->Paymentremita_m->payment();
                             redirect('secured/Processpayment', 'refresh');
                         } else {
-                            $msg = "Hello. You already have a paid OR pending transaction check back in two hours time!!! ";
+                            $msg = "Hello. You already have a paid OR pending transaction check back in two hours time!!!1st ";
                             $_SESSION['paymsg'] = $msg;
                             $this->session->mark_as_flash('paymsg');
-                            //echo "<script type='text/javascript'>alert('$msg');</script>";
-                            redirect('secured/SecuredPayment', 'refresh');
-                        }
-                    } else if ($row->status == '021') {
-                        $this->db->from('paymentItems');
-                        $this->db->where('MultiPay', 'Yes');
-                        $this->db->where('ItemCode', $this->itemCode);
-                        $query = $this->db->get();
-                        if ($query->num_rows() > 0) {
-                            $this->Paymentremita_m->payment();
-                            redirect('secured/Processpayment', 'refresh');
-                        } else {
-                            $msg = "Hello. You already have a paid OR pending transaction check back in two hours time!!! ";
-                            $_SESSION['paymsg'] = $msg;
-                            $this->session->mark_as_flash('paymsg');
-                            //echo "<script type='text/javascript'>alert('$msg');</script>";
                             redirect('secured/SecuredPayment', 'refresh');
                         }
                     }
                 }
-                $msg = "Hello. You already have a paid OR pending transaction check back in two hours time!!! ";
-                $_SESSION['paymsg'] = $msg;
-                $this->session->mark_as_flash('paymsg');
-                //echo "<script type='text/javascript'>alert('$msg');</script>";
-                redirect('secured/SecuredPayment', 'refresh');
             } elseif ($query->num_rows() == 0) {
                 $sql = "SELECT * FROM newStudentSchoolFeesSocketWork WHERE"
                         . "(newStudentSchoolFeesSocketWork.REGISTRATION_NUMBER='" . $_SESSION['RegNumb'] . "')";
                 $query = $this->db->query($sql);
                 if ($query->num_rows() > 0) {
-                    $msg = "Hello. You already have a paid OR pending transaction check back in two hours time!!! ";
+                    $msg = "Hello. You already have a paid OR pending transaction check back in two hours time!!!4th ";
                     $_SESSION['paymsg'] = $msg;
                     $this->session->mark_as_flash('paymsg');
                     redirect('secured/SecuredPayment', 'refresh');
                 } else {
-                    $this->Paymentremita_m->payment();
-                    redirect('secured/Processpayment', 'refresh');
+                    if ($this->itemCode == "3003") {
+                        /*                         * * begining of change of institution and change of course */
+                        //echo  '  '. $this->itemCode;die();
+                        $sql0 = "SELECT * FROM changeOfInstitution WHERE"
+                                . "(changeOfInstitution.RegNumb='" . $_SESSION['JambID'] . "')"
+                                . "AND(changeOfInstitution.Status='F')";
+                        $query0 = $this->db->query($sql0);
+                        if ($query0->num_rows() > 0) {
+                            $row = $query0->row_array();
+                            //var_dump($row);
+                            //exit();
+                            //echo "Got here 3";
+                            //pay 80,000
+                            $this->Paychangeremita_m->paymentChangeInstitution();
+                            redirect('secured/Processpayment', 'refresh');
+                        } else {
+                            $msg = "<font color='red'>Hello. You already have a paid for change of institution! Please visit the ICT center</font>";
+                            $_SESSION['paymsg'] = $msg;
+                            $this->session->mark_as_flash('paymsg');
+                            redirect('secured/SecuredPayment', 'refresh');
+                        }
+                    } elseif ($this->itemCode == "3002") {
+                        $sql00 = "SELECT * FROM changeOfCourse WHERE"
+                                . "(changeOfCourse.RegNumb='" . $_SESSION['JambID'] . "')"
+                                . "AND(changeOfCourse.Status='F')";
+                        $query00 = $this->db->query($sql00);
+                        if ($query00->num_rows() > 0) {
+                            $row = $query00->row_array();
+                            //var_dump($row);
+                            //exit();
+                            //echo "Got here 4";
+                            //pay 25000 
+                            $this->Paychangeremita_m->paymentChangeCourse();
+                            redirect('secured/Processpayment', 'refresh');
+                        }else{
+                            $msg = "<font color='red'>Hello. You already have a paid for change of course! Please visit the ICT center</font>";
+                            $_SESSION['paymsg'] = $msg;
+                            $this->session->mark_as_flash('paymsg');
+                            redirect('secured/SecuredPayment', 'refresh');
+                        }
+                    } else {
+                        //echo "/***end of change of course and change of institution */";
+                        $this->Paymentremita_m->payment();
+                        redirect('secured/Processpayment', 'refresh'); //
+                    }
                 }
-            } else {
-                $this->Paymentremita_m->payment();
-                redirect('secured/Processpayment', 'refresh');
-                return TRUE;
             }
         }
     }
@@ -145,7 +163,8 @@ class SecuredPayment extends BaseController {
         }
     }
 
-    public function captcha_check() {
+    public
+            function captcha_check() {
 // First, delete old captchas
         $expiration = time() - 3600; // One hour limit
         $this->db->where('captcha_time < ', $expiration)
