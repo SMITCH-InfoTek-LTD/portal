@@ -1,12 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-defined('BASEPATH') OR exit('No direct script access allowed');
-=======
 namespace App\Models; 
-
 use CodeIgniter\Model;
->>>>>>> a3c25aa (Converting CI 3 application to CI 4 :: continuation of updating the Model)
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -17,11 +13,9 @@ use CodeIgniter\Model;
  *
  * @author doowo
  */
-<<<<<<< HEAD
-class Student_m extends CI_Model {
-=======
+
 class Student_m extends Model {
->>>>>>> a3c25aa (Converting CI 3 application to CI 4 :: continuation of updating the Model)
+
 
     var $Sno;
     var $jambID;

@@ -1,11 +1,8 @@
 <?php
-<<<<<<< HEAD
 
-=======
 namespace App\Models; 
 
 use CodeIgniter\Model;
->>>>>>> a3c25aa (Converting CI 3 application to CI 4 :: continuation of updating the Model)
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,11 +14,9 @@ use CodeIgniter\Model;
  *
  * @author osagiesammy
  */
-<<<<<<< HEAD
-class Courseregistration extends CI_Model {
-=======
+
 class Courseregistration extends Model {
->>>>>>> a3c25aa (Converting CI 3 application to CI 4 :: continuation of updating the Model)
+
 
     //put your code here
     var $regno;
