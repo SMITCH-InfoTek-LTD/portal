@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-# portal
 Integrated Portal System
-=======
->>>>>>> a3c25aa (Converting CI 3 application to CI 4 :: continuation of updating the Model)
 # CodeIgniter 4 Application Starter
 
 ## What is CodeIgniter?
