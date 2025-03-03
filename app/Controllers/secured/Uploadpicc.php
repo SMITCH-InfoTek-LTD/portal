@@ -1,5 +1,6 @@
 <?php
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+namespace App\Controllers;
+
 class Uploadpicc extends BaseController {
 
 	    function __construct() {
