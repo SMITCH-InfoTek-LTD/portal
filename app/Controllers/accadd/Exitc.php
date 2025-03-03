@@ -1,6 +1,6 @@
 <?php
 
-
+namespace App\Controllers;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
