@@ -1,6 +1,6 @@
 <?php
 
-
+namespace App\Controllers;
 
 class TestPdf extends BaseController {
 

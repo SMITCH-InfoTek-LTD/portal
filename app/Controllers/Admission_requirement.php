@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Controllers;
 
 class Admission_requirement extends BaseController {
 

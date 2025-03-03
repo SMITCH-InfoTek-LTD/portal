@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Controllers;
 
 
 class Loadpicc extends BaseController {
